@@ -113,6 +113,11 @@ body {
     width: calc(100% / 9 - 5px);
 }
 
+.keyboard button[disabled] {
+    opacity: 0;
+    pointer-events: none;
+}
+
 :where(.game-modal, .keyboard) button:hover {
     background-color: var(--background-color-6);
 }
@@ -127,6 +132,17 @@ body {
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+    transition: opacity 0.4 ease;
+    padding: 0 10px;
+}
+
+.game-modal.show {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .game-modal .content {
